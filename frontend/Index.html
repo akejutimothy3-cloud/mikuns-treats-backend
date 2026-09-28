@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikun's Treats | Nigerian Bakery & Kitchen in Abuja</title>
+    <style>
+        :root {
+            --primary: #d44161;
+            --primary-hover: #b83250;
+            --bg-cream: #fffcf7;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --light-gold: #fdfaf4;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg-cream); 
+            color: var(--text-dark); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo p {
+            margin: 2px 0 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--card-bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #eee;
+        }
+
+        .container { 
+            max-width: 500px; 
+            background: var(--card-bg); 
+            margin: 10px auto 40px; 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04); 
+            border: 1px solid #f1eae0;
+        }
+
+        h3 { 
+            color: var(--text-dark); 
+            margin-top: 0; 
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .form-group { 
+            margin-bottom: 22px; 
+        }
+
+        label { 
+            display: block; 
+            font-weight: 600; 
+            margin-bottom: 8px; 
+            font-size: 14px;
+        }
+
+        input[type="text"], input[type="tel"] { 
+            width: 100%; 
+            padding: 14px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-size: 15px;
+            background: #fafafa;
+            transition: 0.2s;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus {
+            border-color: var(--primary);
+            background: #fff;
+            outline: none;
+        }
+
+        .menu-instruction {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            margin-top: -4px;
+        }
+
+        .checkbox-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            background: var(--light-gold); 
+            padding: 16px; 
+            border-radius: 8px; 
+            max-height: 250px; 
+            overflow-y: auto; 
+            border: 1px solid #f3ede2;
+        }
+
+        .category-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 8px 0 4px;
+            border-bottom: 1px personal #eee;
+            padding-bottom: 2px;
+        }
+        
+        .category-title:first-child {
+            margin-top: 0;
+        }
+
+        .checkbox-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-size: 15px;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        button { 
+            width: 100%; 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            padding: 16px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: background 0.2s; 
+            box-shadow: 0 3px 10px rgba(212, 65, 97, 0.2);
+        }
+
+        button:hover { 
+            background: var(--primary-hover); 
+        }
+
+        button:disabled {
+            background: #ccc;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        .message { 
+            margin-top: 20px; 
+            text-align: center; 
+            font-weight: 600; 
+            padding: 12px;
+            border-radius: 8px;
+            display: none; 
+            font-size: 14px;
+        }
+
+        .success { 
+            color: #1e4620; 
+            background-color: #edf7ed;
+            border: 1px solid #d4edda;
+        }
+
+        .error { 
+            color: #611a15; 
+            background-color: #fde8e8;
+            border: 1px solid #f8d7da;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>Mikun's Treats</h1>
+        <p>MADE FRESH • DELIVERED HAPPY</p>
+    </div>
+</header>
+
+<div class="hero">
+    <h2>Craving something sweet or savoury?</h2>
+    <p>Puff puff, chin chin, meat pie, small chops, cakes, zobo and full Nigerian dishes.</p>
+    
+    <div class="badge-container">
+        <div class="badge">🇳🇬 Abuja City-Wide Delivery</div>
+        <div class="badge">⭐ 4.9 Customer Love</div>
+        <div class="badge">⏰ 9AM – 8PM Daily</div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>🛍 Fill in your order below</h3>
+    
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" placeholder="e.g. Chioma Adebayo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="customerPhone">Phone Number</label>
+            <input type="tel" id="customerPhone" placeholder="e.g. 08012345678" required>
+        </div>
+
+        <div class="form-group">
+            <label>Select Your Treats</label>
+            <div class="menu-instruction">Choose everything you want to order today:</div>
+            <div class="checkbox-group" id="menuItemsContainer">
+                <!-- Static fallbacks show instantly while browser pulls fresh API menu -->
+                <div class="category-title">Pastries & Snacks</div>
+                <div class="checkbox-item"><input type="checkbox" name="treats" value="Puff Puff"> Puff Puff</div>
+                <div class="checkbox-item"><input type="checkbox" name="treats" value="Chin Chin"> Chin Chin</div>
+                <div class="checkbox-item"><input type="checkbox" name="treats" value="Meat Pie"> Meat Pie</div>
+                
+                <div class="category-title">Cakes & Foil Cakes</div>
+                <div class="checkbox-item"><input type="checkbox" name="treats" value="Red Velvet"> Red Velvet Cake</div>
+                <div class="checkbox-item"><input type="checkbox" name="treats" value="Custom Celebration Cakes"> Custom Celebration Cakes</div>
+                
+                <div class="category-title">Drinks & Dishes</div>
+                <div class="checkbox-item"><input type="checkbox" name="treats" value="Zobo"> Chilled Zobo</div>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn">Submit Order</button>
+    </form>
+
+    <div id="responseMessage" class="message"></div>
+</div>
+
+<footer>
+    <p>© 2026 Mikun's Treats. Made fresh, always.</p>
+</footer>
+
+<!-- CRITICAL MODULE SCRIPTS -->
+<script src="config.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const orderForm = document.getElementById('orderForm');
+    const menuContainer = document.getElementById('menuItemsContainer');
+    const responseMessage = document.getElementById('responseMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // 1. Dynamic Menu Fetch from your Backend API
+    if (window.MIKUN_API_BASE) {
+        fetch(`${window.MIKUN_API_BASE}/api/menu`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.menu) {
+                    menuContainer.innerHTML = ''; // Clear hardcoded fallbacks
+                    
+                    data.menu.forEach(categoryGroup => {
+                        // Insert Category Header
+                        const header = document.createElement('div');
+                        header.className = 'category-title';
+                        header.innerText = categoryGroup.category;
+                        menuContainer.appendChild(header);
+
+                        // Insert Items
+                        categoryGroup.items.forEach(item => {
+                            const div = document.createElement('div');
+                            div.className = 'checkbox-item';
+                            div.innerHTML = `<input type="checkbox" name="treats" value="${item}"> ${item}`;
+                            menuContainer.appendChild(div);
+                        });
+                    });
+                }
